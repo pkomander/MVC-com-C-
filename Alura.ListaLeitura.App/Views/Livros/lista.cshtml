@@ -3,16 +3,28 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Lista de Livros</title>
+    <style>body { background: #eae2e5 }</style>
 </head>
 <body>
+    <!--NavBar-->
+    <ol class="breadcrumb">
+        <li><a href="#">@Html.ActionLink("Livros Lidos", "Lidos")</a></li>
+        <li><a href="#">@Html.ActionLink("Livros Para-Ler", "ParaLer")</a></li>
+        <li class="active">@Html.ActionLink("Livros Lendo ", "Lendo")</li>
+        <li class="active">@Html.ActionLink("Cadastro Livro ", "Cadastro")</li>
+    </ol>
+
+
+    <!--Lista de Livros-->
     <ul>
+
         @foreach (var livro in ViewBag.Livros)
         {
-            <li>@livro.Titulo - @livro.Autor</li>
-            <li>@Html.ActionLink("detalhar", "Detalhes", new { id = livro.Id }, new { @class = "btn btn-success" })</li>
-        }
-    </ul>
+        <li>@livro.Titulo - @livro.Autor</li>
+        <li>@Html.ActionLink("detalhar", "Detalhes", new { id = livro.Id }, new { @class = "btn btn-success" })</li>
+    }
+</ul>
 </body>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </html>
